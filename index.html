@@ -7,66 +7,62 @@
     <title>TODO APP</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <script src="ap.js"></script>
 </head>
 <body>
     <div class="app">
         <div class="todo">
-            <div class="todo__group">
+            <div class="todo__groups">
                 <h1>Todo List</h1>
             </div>
             <div class="todo__group todo__input">
-                <input type="text" placeholder="Add todo...">
-                <button><i class="fas fa-plus"></i></button>
+                <input id="input-add" type="text" placeholder="Add todo...">
+                <button id="button"><i class="fas fa-plus"></i></button>
             </div>
+
             <div class="todo__group todo__list">
-                <div class="todo__list-group">
-                    <div class="todo__list-group-item">
-                        <input type="checkbox">
-                    </div>
-                    <div class="todo__list-group-item">item</div>
-                </div>
-
-                <div class="todo__list-group">
-                    <div class="todo__list-group-item">
-                        <input type="checkbox">
-                    </div>
-                    <div class="todo__list-group-item">item</div>
-                </div>
-
-                <div class="todo__list-group">
-                    <div class="todo__list-group-item">
-                        <input type="checkbox">
-                    </div>
-                    <div class="todo__list-group-item">item</div>
-                </div>
                 
-                <div class="todo__list-group">
-                    <div class="todo__list-group-item">
-                        <input type="checkbox">
-                    </div>
-                    <div class="todo__list-group-item">item</div>
-                </div>
-
-                <div class="todo__list-group">
-                    <div class="todo__list-group-item">
-                        <input type="checkbox">
-                    </div>
-                    <div class="todo__list-group-item">item</div>
-                </div>
-
-                <div class="todo__list-group">
-                    <div class="todo__list-group-item">
-                        <input type="checkbox">
-                    </div>
-                    <div class="todo__list-group-item">item</div>
-                </div>
-
             </div>
+            
+
             <div class="todo__group todo__filter">
                 <p>You have 3 pending task</p>
                 <button>Clear all</button>
             </div>
         </div>
     </div>
+
+    <script>
+        const qall = (str) => {
+            return document.querySelectorAll(str)
+        }
+
+        const q = (str) => {
+            return document.querySelector(str)
+        }
+
+        document.querySelector('#button').onclick = function search() {
+            if(document.getElementById('input-add').value.length == 0){
+                alert('Không thể để trống trường này')
+            }
+            else{
+            document.querySelector('.todo__list').innerHTML
+            += `
+            <div class = "todo__list-group-item">
+                <p class ="text">${document.querySelector('.todo__group input').value}</p>
+                <input class="input-checkbox" type="checkbox">
+            </div>
+            `;
+            }
+
+            
+        }
+
+        
+
+       
+
+        
+    </script>
 </body>
 </html>
